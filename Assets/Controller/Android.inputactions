@@ -1,0 +1,33 @@
+{
+    "name": "Android",
+    "maps": [
+        {
+            "name": "PlayerAndroid",
+            "id": "6ca15045-d53c-425a-9624-28be60e39549",
+            "actions": [
+                {
+                    "name": "Gyro",
+                    "type": "Value",
+                    "id": "e77584f0-5b4a-417e-a0e4-8751d4766e28",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c5761daa-d0b9-4c3a-8b9e-862f1eca9a11",
+                    "path": "<Gyroscope>/angularVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gyro",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
