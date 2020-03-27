@@ -13,14 +13,16 @@ public class GyroManager : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
+        gravityMagnitude = Physics2D.gravity.magnitude;
     }
     #endregion
 
     [Header("Logic")]
     private Gyroscope gyro;
-    
-    public Vector2 gravity { get; private set; }
     private bool gyroActive;
+    private float attitudeCorrection;
+    private float gravityMagnitude;
+    private Vector2 gravity;
 
     public void EnableGyro()
     {
@@ -35,7 +37,7 @@ public class GyroManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Gyro is not supportet on this device");
+            Debug.LogError("Gyro is not supportet on this device");
         }
 
     }
@@ -43,17 +45,32 @@ public class GyroManager : MonoBehaviour
     {
         if (gyroActive)
         {
-            if (Mathf.Abs(gyro.gravity.z) > 0.9)
+            if (Mathf.Abs(gyro.gravity.z) > 0.9) // phone aligned face up or down => cannot use gravity
             {
-                gravity = (gyro.attitude * Vector2.up).normalized;
-                gravity = new Vector2(-gravity.x, gravity.y);
-                Debug.DrawRay(transform.position, gravity, Color.red);
+                if (attitudeCorrection == 0)
+                    attitudeCorrection = GetAttitudeCorrection();
+                gravity = GetGravityFromAttitude(gyro.attitude).RotateBy(attitudeCorrection);
             }
             else
             {
+                attitudeCorrection = 0;
                 gravity = gyro.gravity.To2D().normalized;
-                Debug.DrawRay(transform.position, gravity, Color.green);
             }
+            Physics2D.gravity = gravity * gravityMagnitude;
         }
     }
+
+    private float GetAttitudeCorrection()
+    {
+        Vector2 realGravity = gyro.gravity.To2D();
+        Vector2 gravityFromAttitude = GetGravityFromAttitude(gyro.attitude);
+        return realGravity.ToAngle() - gravityFromAttitude.ToAngle();
+    }
+
+    private Vector2 GetGravityFromAttitude(Quaternion attitude)
+    {
+        Vector2 g = (attitude * Vector2.up).normalized;
+        return new Vector2(-g.x, g.y);
+    }
+
 }

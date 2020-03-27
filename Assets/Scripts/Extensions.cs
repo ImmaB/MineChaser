@@ -7,9 +7,17 @@ using UnityEngine;
 public static class Extensions
 {
     // Vector2
-    public static Vector2 To2D(this Vector3 v)
+    public static Vector2 RotateBy(this Vector2 v, float degrees)
     {
-        return new Vector2(v.x, v.y);
+        degrees *= Mathf.Deg2Rad;
+        float sin = Mathf.Sin(degrees);
+        float cos = Mathf.Cos(degrees);
+        return new Vector2(v.x * cos + v.y * sin, v.y * cos - v.x * sin);  
+    }
+    public static float ToAngle(this Vector2 v)
+    {
+        float angle = Vector2.Angle(Vector2.up, v);
+        return v.x > 0 ? angle : 360 - angle;
     }
 
     // Vector3
@@ -20,6 +28,10 @@ public static class Extensions
     public static Vector3 WithZ(this Vector3 v, float z)
     {
         return new Vector3(v.x, v.y, z);
+    }
+    public static Vector2 To2D(this Vector3 v)
+    {
+        return new Vector2(v.x, v.y);
     }
 
     // IEnumerable
