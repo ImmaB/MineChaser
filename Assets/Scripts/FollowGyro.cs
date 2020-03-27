@@ -20,7 +20,7 @@ public class FollowGyro : MonoBehaviour
         //transform.localRotation = Quaternion.Euler(GyroManager.Instance.GetGravityRot() * 50);//baseRotation;
         //transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Input.acceleration.x * 50));//Quaternion.Euler(Input.acceleration * 50);
         // transform.localRotation = GyroManager.instance.zRotation;
-        transform.localRotation = Quaternion.Euler(0, 0, GyroManager.instance.rotation);
+        // transform.localRotation = Quaternion.Euler(0, 0, GyroManager.instance.rotation);
 
         //z seems to be the key
         // Debug.Log(GyroManager.instance.rotation.eulerAngles);
