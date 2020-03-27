@@ -6,6 +6,7 @@ public class GyroManager : MonoBehaviour
 {
     #region Instance
     public static GyroManager instance { get; private set; }
+    public Quaternion zRotation { get; private set; }
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class GyroManager : MonoBehaviour
     private Gyroscope gyro;
     
     public Quaternion rotation { get; private set; }
-    public Vector3 gravityRot { get; private set; }
+    public Vector3 gravity { get; private set; }
     private bool gyroActive;
 
     public void EnableGyro()
@@ -45,7 +46,8 @@ public class GyroManager : MonoBehaviour
         if (gyroActive)
         {
             rotation = gyro.attitude;
-            gravityRot = gyro.gravity;
+            zRotation = Quaternion.Euler(new Vector3(0, 0, rotation.eulerAngles.z));
+            gravity = gyro.gravity;
         }
     }
 }
