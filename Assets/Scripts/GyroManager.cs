@@ -6,7 +6,6 @@ public class GyroManager : MonoBehaviour
 {
     #region Instance
     public static GyroManager instance { get; private set; }
-    public Quaternion zRotation { get; private set; }
 
     private void Awake()
     {
@@ -44,7 +43,17 @@ public class GyroManager : MonoBehaviour
     {
         if (gyroActive)
         {
-            gravity = gyro.gravity.To2D().normalized;
+            if (Mathf.Abs(gyro.gravity.z) > 0.9)
+            {
+                gravity = (gyro.attitude * Vector2.up).normalized;
+                gravity = new Vector2(-gravity.x, gravity.y);
+                Debug.DrawRay(transform.position, gravity, Color.red);
+            }
+            else
+            {
+                gravity = gyro.gravity.To2D().normalized;
+                Debug.DrawRay(transform.position, gravity, Color.green);
+            }
         }
     }
 }
