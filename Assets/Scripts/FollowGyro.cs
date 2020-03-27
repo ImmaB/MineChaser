@@ -22,7 +22,8 @@ public class FollowGyro : MonoBehaviour
         transform.localRotation = GyroManager.instance.zRotation;
         //z seems to be the key
         // Debug.Log(GyroManager.instance.rotation.eulerAngles);
-        Physics2D.gravity = GyroManager.instance.gravity.To2D().normalized * gravityMagnitude;
+        Physics2D.gravity = -Camera.main.transform.up * gravityMagnitude;
+        //GyroManager.instance.gravity.To2D().normalized * gravityMagnitude;
 
     }
 }

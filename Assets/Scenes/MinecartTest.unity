@@ -187,7 +187,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 704741184}
+      objectReference: {fileID: 485233121}
     - target: {fileID: 7985738253158324553, guid: f0f1f143d664d6c45ada43294f13bd1c,
         type: 3}
       propertyPath: path.points.Array.data[0].x
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 232199650}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 219313015}
---- !u!43 &704741184
+--- !u!43 &485233121
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -862,6 +862,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403981036180761855, guid: b8de81a9412669847a6efda83da529bc,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.06341314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403981036180761855, guid: b8de81a9412669847a6efda83da529bc,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.08121997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403981036180761855, guid: b8de81a9412669847a6efda83da529bc,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 0.06647277
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403981036180761855, guid: b8de81a9412669847a6efda83da529bc,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.0870949
       objectReference: {fileID: 0}
     - target: {fileID: 8301025383368024574, guid: b8de81a9412669847a6efda83da529bc,
         type: 3}
