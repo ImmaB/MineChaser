@@ -20,7 +20,6 @@ public class GyroManager : MonoBehaviour
     [Header("Logic")]
     private Gyroscope gyro;
     
-    public float rotation { get; private set; }
     public Vector2 gravity { get; private set; }
     private bool gyroActive;
 
@@ -45,22 +44,7 @@ public class GyroManager : MonoBehaviour
     {
         if (gyroActive)
         {
-            // rotation = gyro.attitude;
-            // rotation = gyro.attitude;
-            Vector3 rot = gyro.gravity;
-            // zRotation = Quaternion.Euler(rot);
-            // zRotation = Quaternion.Euler(new Vector3(0, 0, rotation.eulerAngles.z));
-            // gravity = gyro.gravity.WithZ(0).normalized;
             gravity = gyro.gravity.To2D().normalized;
-            // gravity = new Vector2(-gravity.x, gravity.y);
-            Debug.DrawRay(transform.position, gravity);
-            // float angle = Vector2.Angle(gravity, Vector2.down);
-            // zRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            // zRotation = Quaternion.FromToRotation(gravity, Vector2.down);
-
-
-
-            rotation = -Vector2.SignedAngle(gravity, Vector2.down);
         }
     }
 }
