@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7985738253158324557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7985738253158324550}
+  - component: {fileID: 7985738253158324553}
+  - component: {fileID: 7985738253158324552}
+  - component: {fileID: 7985738253158324555}
+  - component: {fileID: 7985738253158324554}
+  - component: {fileID: 7985738253158324551}
+  m_Layer: 0
+  m_Name: RoadCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7985738253158324550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7985738253158324553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca9cd480c1f5f240b22ad2a740b1146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path:
+    points:
+    - {x: -2.3204956, y: 0.24923533}
+    - {x: -2.219272, y: -0.052389443}
+    - {x: -0.58897936, y: -0.6032493}
+    - {x: 0.20857328, y: 0}
+    - {x: 0.29740548, y: 0.067190535}
+    - {x: 1.1125745, y: 0.1158245}
+    - {x: 1.0606315, y: 0.21435197}
+    - {x: 1.0144402, y: 0.30196953}
+    - {x: 1.1723192, y: 0.46691763}
+    - {x: 1.0783598, y: 0.49825627}
+    - {x: 0.9541278, y: 0.53969175}
+    - {x: 1.146305, y: 1.032525}
+    - {x: 1.2106628, y: 1.1465802}
+    - {x: 1.5626981, y: 1.7704574}
+    - {x: 1.365859, y: 2.3313558}
+    - {x: 2.0534377, y: 2.310795}
+    - {x: 2.2571447, y: 2.3047037}
+    - {x: 2.1025712, y: 1.0320909}
+    - {x: 2.4086375, y: 1.0516547}
+    - {x: 2.8080208, y: 1.0771834}
+    - {x: 6.1850767, y: 1.5261862}
+    - {x: 5.012724, y: 1.1405265}
+    - {x: 3.8403711, y: 0.75486684}
+    - {x: -2.4217193, y: 0.5508601}
+    isClosed: 1
+    autoSetControlPoints: 0
+  anchorColor: {r: 1, g: 0, b: 0, a: 1}
+  controlColor: {r: 1, g: 1, b: 1, a: 1}
+  segmentColor: {r: 0, g: 1, b: 0, a: 1}
+  selectedSegmentColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  anchorDiameter: 0.1
+  controlDiameter: 0.075
+  displayControlPoints: 1
+--- !u!33 &7985738253158324552
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_Mesh: {fileID: 0}
+--- !u!23 &7985738253158324555
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ee046acf66ecce3439f3ecd12336957d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &7985738253158324554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9ba6e8484c2cc4799b652f7205018e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spacing: 0.1
+  roadWidth: 0.2
+  autoUpdate: 1
+  tiling: 58
+--- !u!114 &7985738253158324551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985738253158324557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34e6a333b12a9e4fb750a9bbcd30cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

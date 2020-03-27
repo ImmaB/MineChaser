@@ -5,34 +5,22 @@ using UnityEngine;
 public class GyroManager : MonoBehaviour
 {
     #region Instance
-    private static GyroManager instance;
-    public static GyroManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                instance = FindObjectOfType<GyroManager>();
-                if(instance == null)
-                {
-                    instance = new GameObject("Spawned GyroManager", typeof(GyroManager)).GetComponent<GyroManager>();
-                }
-            }
+    public static GyroManager instance { get; private set; }
 
-            return instance;
-        }
-        set
-        {
-            instance = value;
-        }
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
     }
     #endregion
 
     [Header("Logic")]
     private Gyroscope gyro;
     
-    private Quaternion rotation;
-    private Vector3 gravityRot;
+    public Quaternion rotation { get; private set; }
+    public Vector3 gravityRot { get; private set; }
     private bool gyroActive;
 
     public void EnableGyro()
@@ -59,13 +47,5 @@ public class GyroManager : MonoBehaviour
             rotation = gyro.attitude;
             gravityRot = gyro.gravity;
         }
-    }
-    public Quaternion GetGyroRotation()
-    {
-        return rotation;
-    }
-    public Vector3 GetGravityRot()
-    {
-        return gravityRot;
     }
 }

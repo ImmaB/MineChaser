@@ -9,7 +9,7 @@ public class FollowGyro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GyroManager.Instance.EnableGyro();
+        GyroManager.instance.EnableGyro();
     }
 
     // Update is called once per frame
@@ -17,8 +17,8 @@ public class FollowGyro : MonoBehaviour
     {
         //transform.localRotation = Quaternion.Euler(GyroManager.Instance.GetGravityRot() * 50);//baseRotation;
         //transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Input.acceleration.x * 50));//Quaternion.Euler(Input.acceleration * 50);
-        transform.localRotation = Quaternion.Euler(new Vector3(0,0,GyroManager.Instance.GetGyroRotation().eulerAngles.z));
+        transform.localRotation = Quaternion.Euler(new Vector3(0,0,GyroManager.instance.rotation.eulerAngles.z));
         //z seems to be the key
-        Debug.Log(GyroManager.Instance.GetGyroRotation().eulerAngles);
+        Debug.Log(GyroManager.instance.rotation.eulerAngles);
     }
 }
