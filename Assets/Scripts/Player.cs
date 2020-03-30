@@ -25,4 +25,9 @@ public class Player : MonoBehaviour
         // Quaternion rot = ctx.ReadValue<Quaternion>();
         // Debug.Log(rot);
     }
+
+    private void OnDeath()
+    {
+        SceneLoader.instance.LoadScene(0);
+    }
 }
