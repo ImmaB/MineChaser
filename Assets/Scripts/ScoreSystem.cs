@@ -5,26 +5,31 @@ using TMPro;
 
 public class ScoreSystem : MonoBehaviour
 {
+    #region Instance
+    public static ScoreSystem instance { get; private set; }
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+    #endregion
+
     private float multiplier = 5f;
-    private float score = 0;
-    [SerializeField]
-    private TextMeshProUGUI text;
+    public float score { get; private set; }
 
     private GameObject player;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        if(!player)
+            player = GameObject.FindGameObjectWithTag("Player");
+        score = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AddScore(float addScore)
     {
-        if (player.activeSelf)
-        {
-
-            score += Time.deltaTime * multiplier;
-        }
-        text.text = "Score: " + Mathf.Floor(score);
+        score += addScore;
     }
 }
