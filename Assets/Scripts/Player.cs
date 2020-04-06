@@ -5,19 +5,23 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D rigbody;
+    
+    private void Awake()
     {
-        // if (AttitudeSensor.current == null)
-        //     Debug.LogError("No AttitudeSensor found");
-        // else
-        //     InputSystem.EnableDevice(AttitudeSensor.current);
+        rigbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        GyroManager.instance.EnableGyro();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        bool grounded = true;
+        SoundManager.SetMinecartSpeed(grounded ? rigbody.velocity.magnitude : 0);
     }
 
     public void OnRotate(InputAction.CallbackContext ctx)
