@@ -16,18 +16,33 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private AudioSource minecart;
+    [SerializeField] private AudioSource wheelSpin;
+    [SerializeField] private float minecartSpeed = 1;
+    [SerializeField] private AudioSource[] headHits;
+    [SerializeField] private AudioSource groundHit;
 
-    public static void SetMinecartSpeed(float speed)
+    public static void SetWheelSpinSpeed(float speed)
     {
-        if (speed < 0.1) speed = 0;
-        if (speed > 0)
+        speed *= instance.minecartSpeed;
+        instance.wheelSpin.volume = Mathf.Max(0, speed - 0.15f);
+        if (instance.wheelSpin.volume > 0)
         {
-            if (!instance.minecart.isPlaying)
-                instance.minecart.Play();
-            instance.minecart.pitch = speed;
+            if (!instance.wheelSpin.isPlaying)
+                instance.wheelSpin.Play();
+            instance.wheelSpin.pitch = speed;
+            instance.wheelSpin.outputAudioMixerGroup.audioMixer.SetFloat("Pitch", 1f / speed);
         }
         else
-            instance.minecart.Stop();
+            instance.wheelSpin.Stop();
+    }
+
+    public static void PlayHeadHit()
+    {
+        instance.headHits[Rand.Int(instance.headHits.Length)].Play();
+    }
+
+    public static void PlayGroundHit()
+    {
+        instance.groundHit.Play();
     }
 }

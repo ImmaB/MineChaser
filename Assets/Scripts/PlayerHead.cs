@@ -8,6 +8,7 @@ public class PlayerHead : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         bumpCount++;
+        SoundManager.PlayHeadHit();
         Debug.Log(bumpCount);
     }
 }
