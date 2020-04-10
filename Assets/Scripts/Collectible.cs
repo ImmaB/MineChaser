@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    [SerializeField]
-    private float score = 2f;
+    public float score = 2f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

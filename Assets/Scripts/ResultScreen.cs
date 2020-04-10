@@ -6,12 +6,12 @@ using TMPro;
 public class ResultScreen : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI collCount;
+    private TextMeshProUGUI collCount = null;
     [SerializeField]
-    private TextMeshProUGUI lifeCount;
+    private TextMeshProUGUI lifeCount = null;
     [SerializeField]
-    private TextMeshProUGUI time;
-    private PlayerHead playerHead; 
+    private TextMeshProUGUI time = null;
+    private PlayerHead playerHead = null; 
     private void OnEnable()
     {
         if (playerHead == null)

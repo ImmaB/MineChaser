@@ -16,10 +16,10 @@ public class SoundManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private AudioSource wheelSpin;
+    [SerializeField] private AudioSource wheelSpin = null;
     [SerializeField] private float minecartSpeed = 1;
-    [SerializeField] private AudioSource[] headHits;
-    [SerializeField] private AudioSource groundHit;
+    [SerializeField] private AudioSource[] headHits = null;
+    [SerializeField] private AudioSource groundHit = null;
 
     public static void SetWheelSpinSpeed(float speed)
     {

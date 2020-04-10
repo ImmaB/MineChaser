@@ -17,7 +17,7 @@ public class ScoreSystem : MonoBehaviour
     }
     #endregion
 
-    private float multiplier = 5f;
+    private float multiplier = 1f;
     public float score { get; private set; }
     public int collectibleCount { get; private set;}
     public int maxCollectibleCount { get; private set; }
@@ -38,7 +38,7 @@ public class ScoreSystem : MonoBehaviour
     }
     public void AddScore(float addScore)
     {
-        score += addScore;
+        score += addScore * multiplier;
         collectibleCount++;
     }
 }
