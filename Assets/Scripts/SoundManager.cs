@@ -18,8 +18,10 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource wheelSpin = null;
     [SerializeField] private float minecartSpeed = 1;
+    [SerializeField] private AudioSource[] collectibles = null;
     [SerializeField] private AudioSource[] headHits = null;
     [SerializeField] private AudioSource groundHit = null;
+    [SerializeField] private AudioSource crystalHit = null;
 
     public static void SetWheelSpinSpeed(float speed)
     {
@@ -44,5 +46,15 @@ public class SoundManager : MonoBehaviour
     public static void PlayGroundHit()
     {
         instance.groundHit.Play();
+    }
+
+    public static void PlayCollectible()
+    {
+        instance.collectibles[Rand.Int(instance.headHits.Length)].Play();
+    }
+
+    public static void PlayCrystalHit()
+    {
+        instance.crystalHit.Play();
     }
 }

@@ -12,6 +12,7 @@ public class ResultScreen : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI time = null;
     private PlayerHead playerHead = null; 
+
     private void OnEnable()
     {
         if (playerHead == null)
@@ -23,9 +24,9 @@ public class ResultScreen : MonoBehaviour
         if (time)
             time.text = (int)(Time.time - ScoreSystem.instance.timeStart) + "Sec.";
     }
+
     public void LoadLevel(int index)
     {
-        SceneLoader.instance.LoadScene(index);
+        SceneLoader.LoadLevel(index);
     }
-
 }

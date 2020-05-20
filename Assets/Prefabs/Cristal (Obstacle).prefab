@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5550864769978974240}
   - component: {fileID: 2747997729875642483}
   - component: {fileID: 622338213793023431}
+  - component: {fileID: 4172596044594741841}
   m_Layer: 0
   m_Name: Cristal (Obstacle)
   m_TagString: Obstacle
@@ -90,13 +91,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5550864769978974241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.048636675, y: -0.23161066}
+  m_Offset: {x: -0.10284138, y: -0.23161066}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,10 +108,36 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1329427, y: 2.9344714}
+  m_Size: {x: 3.2072887, y: 2.9344714}
   m_EdgeRadius: 0
 --- !u!61 &622338213793023431
 BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550864769978974241}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0064737797, y: 1.2092868}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.5, y: 4.88}
+    newSize: {x: 6.5, y: 4.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.327991, y: 1.0478117}
+  m_EdgeRadius: 0
+--- !u!70 &4172596044594741841
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,16 +149,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.064848125, y: 1.5517911}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.5, y: 4.88}
-    newSize: {x: 6.5, y: 4.88}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7282741, y: 1.2205536}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.019489527, y: -0.24014679}
+  m_Size: {x: 3.401051, y: 3.1328406}
+  m_Direction: 0

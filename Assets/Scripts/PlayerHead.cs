@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerHead : MonoBehaviour
 {
-    public int bumpCount;
+    public int bumpCount = 0;
     [SerializeField]
     private int bumpMax = 3;
+
+    [SerializeField]
+    private SpriteRenderer helmetRenderer;
+    [SerializeField]
+    private Sprite normalHelmet;
+    [SerializeField]
+    private Sprite crackedHelmet;
 
     public int BumpMax
     {
@@ -15,40 +22,13 @@ public class PlayerHead : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            bumpCount = 3;
-        }
-        else
-        {
-            bumpCount++;
-        }
-        //Better use if else
-        switch (bumpCount)
-        {
-            case 1:
-                //graphic change crack 1
-                break;
-            case 2:
-                //Graphic no Helmet
-                break;
-            case 3:
-                Dead();
-                break;
-            default:
-                break;
-        }
         SoundManager.PlayHeadHit();
+        bumpCount++;
         Debug.Log(bumpCount);
-    }
-    private void Dead()
-    {
-        // Not Tested
-        FindObjectOfType<ResultScreen>().gameObject.SetActive(true);
-        //Animation?/Graphic change?
-        gameObject.SetActive(false);
-        //Stop Camera Movement
-        Debug.LogError("DEADSCREEN NEEDED");
+        if (bumpCount < 3)
+            helmetRenderer.sprite = new Sprite[]{ normalHelmet, crackedHelmet, null }[bumpCount];
+        else
+            SceneLoader.OnDeath();
     }
 }
 

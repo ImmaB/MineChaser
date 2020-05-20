@@ -41,6 +41,11 @@ public class GyroManager : MonoBehaviour
         }
 
     }
+    public void DisableGyro()
+    {
+        gyroActive = false;
+    }
+
     private void Update()
     {
         if (gyroActive)

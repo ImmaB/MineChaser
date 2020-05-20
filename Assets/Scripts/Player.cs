@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -10,8 +7,12 @@ public class Player : MonoBehaviour
         GyroManager.instance.EnableGyro();
     }
 
-    private void OnDeath()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneLoader.instance.LoadScene(0);
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            SoundManager.PlayCrystalHit();
+            SceneLoader.OnDeath();
+        }
     }
 }
