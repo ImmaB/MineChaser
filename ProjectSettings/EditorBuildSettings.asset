@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_01.unity
     guid: 7a50b190c4ddc1a46b6d244bef9f51b7
-  - enabled: 0
-    path: Assets/Scenes/CameraTest.unity
-    guid: 254b82d59bead2e4489970a2cac974d7
+  - enabled: 1
+    path: Assets/Scenes/Level_02.unity
+    guid: a078f3358694fd249a6e289fc6bf5b1d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 06f2eae3d42d8094598489a8c60dd8ff,
       type: 2}

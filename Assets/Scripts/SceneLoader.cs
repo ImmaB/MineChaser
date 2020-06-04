@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private float deathDelay = 1;
-    [SerializeField] private GameObject deathScreen;
-    public static SceneLoader instance { get; private set; }
-
-    private void OnEnable()
-    {
-        if (instance == null) instance = this;
-        else Destroy(this.gameObject);
-    }
-
     public static void LoadLevel(int level)
     {
         SceneManager.LoadScene(level);
@@ -30,9 +20,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public static void OnDeath()
+    public static bool IsTitle()
     {
-        instance.deathScreen.SetActive(true);
-        GyroManager.instance.DisableGyro();
+        return SceneManager.GetActiveScene().name == "Title";
     }
 }

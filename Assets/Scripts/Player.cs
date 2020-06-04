@@ -4,7 +4,11 @@ public class Player : MonoBehaviour
 {
     private void Start()
     {
-        GyroManager.instance.EnableGyro();
+        GameStateManager.SetState(GameState.Playing);
+        if (SceneLoader.IsTitle())
+            SoundManager.PlayTitleBGM();
+        else
+            SoundManager.PlayLevelBGM();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -12,7 +16,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             SoundManager.PlayCrystalHit();
-            SceneLoader.OnDeath();
+            GameStateManager.SetState(GameState.GameOver);
         }
     }
 }

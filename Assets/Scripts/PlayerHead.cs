@@ -28,7 +28,7 @@ public class PlayerHead : MonoBehaviour
         if (bumpCount < 3)
             helmetRenderer.sprite = new Sprite[]{ normalHelmet, crackedHelmet, null }[bumpCount];
         else
-            SceneLoader.OnDeath();
+            GameStateManager.SetState(GameState.GameOver);
     }
 }
 

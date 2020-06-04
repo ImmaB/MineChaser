@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TitleScreen : MonoBehaviour
 {
-    public void OnStartGame()
+    public void StartLevel(int level)
     {
-        SceneLoader.LoadLevel(1);
+        SceneLoader.LoadLevel(level);
     }
 }
