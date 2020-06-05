@@ -13,62 +13,55 @@ public class GyroManager : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
-        gravityMagnitude = Physics2D.gravity.magnitude;
     }
     #endregion
 
-    [Header("Logic")]
-    private Gyroscope gyro;
-    private bool gyroActive;
     private float attitudeCorrection;
-    private float gravityMagnitude;
-    private Vector2 gravity;
+    private bool trackRotation = false;
+    public static Quaternion rotation { get { return Quaternion.Euler(0, 0, -Physics2D.gravity.ToAngle() + 180); } }
 
     public void EnableGyro()
     {
-        if (gyroActive)
-            return;
-        
+        if (trackRotation) return;
+        trackRotation = true;
         if (SystemInfo.supportsGyroscope)
-        {
-            gyro = Input.gyro;
-            gyro.enabled = true;
-            gyroActive = gyro.enabled;
-        }
-        else
-        {
-            Debug.LogError("Gyro is not supportet on this device");
-        }
-
+            Input.gyro.enabled = true;
     }
+
     public void DisableGyro()
     {
-        gyroActive = false;
+        trackRotation = false;
     }
 
     private void Update()
     {
-        if (gyroActive)
+        if (!trackRotation) return;
+        Vector2 gravityDirection = Vector2.zero;
+        if (SystemInfo.supportsGyroscope)
         {
-            if (Mathf.Abs(gyro.gravity.z) > 0.9) // phone aligned face up or down => cannot use gravity
+            if (Mathf.Abs(Input.gyro.gravity.z) > 0.9) // phone aligned face up or down => cannot use gravity
             {
                 if (attitudeCorrection == 0)
                     attitudeCorrection = GetAttitudeCorrection();
-                gravity = GetGravityFromAttitude(gyro.attitude).RotateBy(attitudeCorrection);
+                gravityDirection = GetGravityFromAttitude(Input.gyro.attitude).RotateBy(attitudeCorrection);
             }
             else
             {
                 attitudeCorrection = 0;
-                gravity = gyro.gravity.To2D().normalized;
+                gravityDirection = Input.gyro.gravity.To2D().normalized;
             }
-            Physics2D.gravity = gravity * gravityMagnitude;
         }
+        else
+        {
+            // Using accelerometer much worse
+        }
+        Physics2D.gravity = gravityDirection * Physics2D.gravity.magnitude;
     }
 
     private float GetAttitudeCorrection()
     {
-        Vector2 realGravity = gyro.gravity.To2D();
-        Vector2 gravityFromAttitude = GetGravityFromAttitude(gyro.attitude);
+        Vector2 realGravity = Input.gyro.gravity.To2D();
+        Vector2 gravityFromAttitude = GetGravityFromAttitude(Input.gyro.attitude);
         return realGravity.ToAngle() - gravityFromAttitude.ToAngle();
     }
 

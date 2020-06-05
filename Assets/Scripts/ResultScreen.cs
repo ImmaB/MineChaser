@@ -15,6 +15,7 @@ public class ResultScreen : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.rotation = GyroManager.rotation;
         if (playerHead == null)
             playerHead = FindObjectOfType<PlayerHead>();
         if (collCount)

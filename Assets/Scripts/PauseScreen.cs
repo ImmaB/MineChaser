@@ -12,6 +12,7 @@ public class PauseScreen : MonoBehaviour
     {
         GameStateManager.SetState(pause ? GameState.Pause : GameState.Playing);
         PauseButton.SetActive(!pause);
+        PauseMenu.transform.rotation = GyroManager.rotation;
         PauseMenu.SetActive(pause);
     }
     

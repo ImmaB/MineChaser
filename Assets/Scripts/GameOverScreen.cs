@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameOverScreen : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        transform.rotation = GyroManager.rotation;
+    }
+
     public void OnRetry()
     {
         SceneLoader.Reload();

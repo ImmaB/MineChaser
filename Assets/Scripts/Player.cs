@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
         if (SceneLoader.IsTitle())
             SoundManager.PlayTitleBGM();
         else
+        {
             SoundManager.PlayLevelBGM();
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
